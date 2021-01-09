@@ -1,0 +1,55 @@
+
+<div class="col-xs-12 col-md-6">
+
+<?php 
+$client = $this->client;
+
+if ( $client ) {
+    
+    echo '<h1>Orders Of '.$client->getName().'</h1>';
+
+    $orders = $this->orders;
+    if ( sizeof($orders) > 0 ) {
+
+        echo '<table class="table table-nonfluid">';
+        echo '<thead><tr>';
+        echo '<th>Order ID</th>';
+        echo '<th>Delete</th>';
+        echo '</tr></thead>';
+        echo '<tbody>';
+
+        foreach($orders as $order)
+        {
+            echo '<tr><td>'
+                 .'<a href="/order/'.$order->getId().'">Order '.$order->getId().'</a>&nbsp;&nbsp;&nbsp;'
+                 .'</td><td><a href="/deleteOrder/'.$order->getId().'">Delete</a>'
+                 .'</td></tr>';
+        }
+
+        echo '</tbody>';
+        echo '</table>';
+
+    } else {
+        echo '<p>No orders.</p>';
+    }
+    
+    echo '<p><a href="/createOrder/'.$client->getId().'">Add Order</a></p>';
+    
+} else {
+
+    echo '<h1>Client Not Found</h1>';
+
+}
+?>
+
+
+</div>
+
+<div class="col-xs-12 col-md-6">
+
+    <h1>Remark</h1>
+    
+    <p>Click on an order to display its details.</p>
+    
+</div>
+

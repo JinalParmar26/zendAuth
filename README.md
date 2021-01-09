@@ -1,2 +1,3 @@
-# zendAuth
-Authentication functionality in Zend Framewrok2 without Database
+composer install
+
+php -S localhost:8000 -t public
